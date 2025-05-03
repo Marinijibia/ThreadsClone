@@ -6,7 +6,7 @@ import { Tabs } from "expo-router";
 const HomeTabsLayout = () => {
     return (
         <Tabs screenOptions={{
-            headerShown: false,
+            // headerShown: false,
             tabBarActiveTintColor: "#000",
             tabBarInactiveTintColor: "#888",
             tabBarShowLabel: false,
