@@ -1,9 +1,17 @@
-import { Text, View } from "react-native";
+import PostListItem from "@/src/components/PostListItem";
+import { FlatList } from "react-native";
+import { posts } from "../../data";
 
-export default function Index() {
+
+
+const HomeScreen = () => {
   return (
-    <View className="items-center justify-center flex-1 bg-white">
-      <Text className="">Feeds</Text>
-    </View>
+    <FlatList
+      data={posts}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) =><PostListItem post={item} />}
+    />
   );
-}
+};
+
+export default HomeScreen;
