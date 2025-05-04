@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList, Image, Text, View } from "react-native";
-import { posts, users } from "../../data"; // Import posts and users data
+import { posts, users } from "../../../data"; // Import posts and users data
 
 const Profile = () => {
   const user = users[0]; // Example: Display the first user as the profile owner

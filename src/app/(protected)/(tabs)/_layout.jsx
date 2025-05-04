@@ -25,6 +25,13 @@ const HomeTabsLayout = () => {
                     tabBarIcon: ({ size, color }) => <Feather name="search" size={size} color={color} /> 
                 }} 
             />
+            {/* <Tabs.Screen 
+                name="new" 
+                options={{ 
+                    title: "New Threads",
+                    tabBarIcon: ({ size, color }) => <Feather name="plus" size={size} color={color} /> 
+                }} 
+            /> */}
             <Tabs.Screen 
                 name="notifications" 
                 options={{ 
