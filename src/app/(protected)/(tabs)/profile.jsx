@@ -7,7 +7,7 @@ const Profile = () => {
   const userPosts = posts.filter((post) => post.user_id === user.id); // Filter posts by user
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-neutral-900">
       {/* Profile Header */}
       <View className="p-4 bg-gray-100 border-b border-gray-300">
         <Image
@@ -15,8 +15,8 @@ const Profile = () => {
           className="w-24 h-24 rounded-full self-center mb-4"
         />
         <Text className="text-2xl font-bold text-center">{user.name}</Text>
-        <Text className="text-gray-500 text-center">@{user.username}</Text>
-        <Text className="text-gray-700 text-center mt-2">{user.bio}</Text>
+        <Text className="text-white text-center">@{user.username}</Text>
+        <Text className="text-white text-center mt-2">{user.bio}</Text>
       </View>
 
       {/* User's Posts */}
@@ -32,8 +32,8 @@ const Profile = () => {
             />
             {/* Post Content */}
             <View className="flex-1">
-              <Text className="text-gray-800">{item.content}</Text>
-              <Text className="text-gray-400 text-sm mt-2">
+              <Text className="text-white">{item.content}</Text>
+              <Text className="text-white text-sm mt-2">
                 {new Date(item.createdAt).toLocaleString()}
               </Text>
             </View>

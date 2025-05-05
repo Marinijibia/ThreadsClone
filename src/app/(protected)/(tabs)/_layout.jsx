@@ -7,7 +7,7 @@ const HomeTabsLayout = () => {
     return (
         <Tabs screenOptions={{
             // headerShown: false,
-            tabBarActiveTintColor: "#000",
+            tabBarActiveTintColor: "#fff",
             tabBarInactiveTintColor: "#888",
             tabBarShowLabel: false,
         }}>

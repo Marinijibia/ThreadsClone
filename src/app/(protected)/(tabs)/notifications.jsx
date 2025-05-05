@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 
 const notifications = () => {
   return (
-    <View>
+    <View className='bg-neutral-900'>
       <Text>notifications</Text>
     </View>
   )

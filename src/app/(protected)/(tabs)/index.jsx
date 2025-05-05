@@ -1,23 +1,27 @@
 import PostListItem from "@/src/components/PostListItem";
 import { Link } from "expo-router";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { posts } from "../../../data";
-
-
 
 const HomeScreen = () => {
   return (
-    <FlatList
-      data={posts}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) =><PostListItem post={item} />}
-      ListHeaderComponent={() => (
-        <Link href="/create" >
-          <Text style={{ color: "white", fontSize: 16 }}>Create New Post</Text>
-        </Link>
-      )
-      }
-    />
+    <View className="flex-1 bg-neutral-900">
+      <FlatList
+        data={posts}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <PostListItem post={item} />}
+        ListHeaderComponent={() => (
+          <View className="p-4">
+            <Link href="/create">
+              <Text className="text-blue-400 text-lg mb-2">Create New Post</Text>
+            </Link>
+            <Link href="/login">
+              <Text className="text-blue-400 text-lg">Login</Text>
+            </Link>
+          </View>
+        )}
+      />
+    </View>
   );
 };
 

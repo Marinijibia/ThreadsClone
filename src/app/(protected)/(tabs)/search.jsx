@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 
 const search = () => {
   return (
-    <View>
+    <View className='bg-neutral-900'>
       <Text>search</Text>
     </View>
   )

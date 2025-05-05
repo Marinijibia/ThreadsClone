@@ -7,7 +7,7 @@ dayjs.extend(relativeTime);
 
 const PostListItem = ({ post }) => {
   return (
-    <View className="flex-row p-4 border-b " style={{gap : 10, borderColor: "#1f2937", borderBottomWidth: 1}}>
+    <View className="flex-row p-4 border-b bg-neutral-900 " style={{gap : 10, borderBottomWidth: 1}}>
       <View className="mr-3">
         <Image
           source={{ uri: post.user.image }}

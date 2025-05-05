@@ -5,7 +5,7 @@ const create = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [text, setText] = useState("")
   return (
-    <SafeAreaView className='p-4 flex-1'>
+    <SafeAreaView className='p-4 flex-1 bg-neutral-900'>
       <KeyboardAvoidingView 
         className='flex-1 p-4' 
         behavior={Platform.OS === "ios" ? "padding" : "height"} style={{gap: 10}}
