@@ -15,9 +15,6 @@ const HomeScreen = () => {
             <Link href="/create">
               <Text className="text-blue-400 text-lg mb-2">Create New Post</Text>
             </Link>
-            <Link href="/login">
-              <Text className="text-blue-400 text-lg">Login</Text>
-            </Link>
           </View>
         )}
       />

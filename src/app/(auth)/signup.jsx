@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native'; // Import navigation hook
+import { supabase } from '@/src/lib/superbase';
 import { Link } from 'expo-router';
 import React, { useState } from "react";
 import { ActivityIndicator, Alert, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -7,19 +7,28 @@ import logo from "../../../assets/images/react-logo.png"; // Adjust the path bas
 const SignupScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); // State for confirm password
-  const [loading, setLoading] = useState(false); // State for loading
-  const navigation = useNavigation(); // Initialize navigation
+  const [confirmPassword, setConfirmPassword] = useState(""); 
+  const [loading, setLoading] = useState(false); 
+
 
   const handleSignup = async () => {
+    if (!email || !password || !confirmPassword) {
+      Alert.alert("Error", "Please fill in all fields.");
+      return;
+    }
     if (email && password && confirmPassword) {
       if (password === confirmPassword) {
         setLoading(true); // Start loading
         try {
-          // Simulate an API call with a timeout
-          await new Promise((resolve) => setTimeout(resolve, 2000));
-          Alert.alert("Signup Successful", `Welcome, ${email}!`);
-          navigation.navigate("Home"); // Navigate to the home screen or dashboard
+          const {
+            data: { session },
+            error,
+          } = await supabase.auth.signUp({
+            email,
+            password,
+          })
+          if (error) Alert.alert(error.message)
+          if (!session) Alert.alert('Please check your inbox for email verification!')
         } catch (error) {
           Alert.alert("Error", "Something went wrong. Please try again.");
         } finally {

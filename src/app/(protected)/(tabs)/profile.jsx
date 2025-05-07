@@ -1,3 +1,4 @@
+import { supabase } from "@/src/lib/superbase";
 import React from "react";
 import { FlatList, Image, Text, View } from "react-native";
 import { posts, users } from "../../../data"; // Import posts and users data
@@ -17,6 +18,10 @@ const Profile = () => {
         <Text className="text-2xl font-bold text-center">{user.name}</Text>
         <Text className="text-white text-center">@{user.username}</Text>
         <Text className="text-white text-center mt-2">{user.bio}</Text>
+
+      </View>
+      <View >
+        <Text className="text-white text-center mt-2" onPress={() => supabase.auth.signOut()}>Sign out</Text>
       </View>
 
       {/* User's Posts */}

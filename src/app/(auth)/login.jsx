@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native'; // Import navigation hook
+import { supabase } from '@/src/lib/superbase';
 import { Link } from 'expo-router';
 import React, { useState } from "react";
 import { ActivityIndicator, Alert, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -8,16 +8,20 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false); // State for loading
-  const navigation = useNavigation(); // Initialize navigation
+ 
 
   const handleLogin = async () => {
     if (email && password) {
       setLoading(true); // Start loading
       try {
-        // Simulate an API call with a timeout
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        setLoading(true)
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        })
+        if (error) Alert.alert(error.message)
+        setLoading(false)
         Alert.alert("Login Successful", `Welcome back, ${email}!`);
-        navigation.navigate("Home"); // Navigate to the home screen or dashboard
       } catch (error) {
         Alert.alert("Error", "Something went wrong. Please try again.");
       } finally {
@@ -80,7 +84,7 @@ const LoginScreen = () => {
         <Text className="text-gray-400">Don&apos;t have an account? </Text>
         <Link href={"/signup"} asChild>
             <TouchableOpacity>
-                <Text className="text-blue-400">Create one</Text>
+              <Text className="text-blue-400">Create one</Text>
             </TouchableOpacity>
         </Link>
       </View>
